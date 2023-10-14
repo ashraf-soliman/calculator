@@ -22,7 +22,7 @@ while true; do
 
   case $operation in
     1)
-       whiptail --title "Team" --msgbox "Ashraf\nAli\nAhmed" 10 50
+       whiptail --title "Team" --msgbox "Eslam Fawzi\nAya Mohamed\nAbdallah Mohamed Ahmed Abdel Gawwad\nAhmed Ibrahim Abdelmotaleb Rashed\nAshraf AbdelSattar Soliman" 13 60
        ;;
     2)
       Arithmetic_operation=$(whiptail --title "Bash Calculator" --menu "Choose an operation:" 12 50 6 \
