@@ -137,16 +137,21 @@ while true; do
           ;;
         3)
           hex_number=$(whiptail --title "Hexadecimal to Decimal" --inputbox "Enter a hexadecimal number:" 10 50 3>&1 1>&2 2>&3)
-	  #until [[ $hex_number =~ ^[0-9a-zA-Z_]*$ ]];
-          #do
-          #         whiptail --title "Invalid Input" --msgbox "Please enter valid hexadwcimal number." 10 50
-	  #         hex_number=$(whiptail --title "Hexadecimal to Decimal" --inputbox "Enter a hexadecimal number:" 10 50 3>&1 1>&2 2>&3)
-          # done
+	  until [[ $hex_number =~ ^[0-9A-F]{1,}$ ]];
+          do
+                   whiptail --title "Invalid Input" --msgbox "Please enter valid hexadecimal number." 10 50
+	           hex_number=$(whiptail --title "Hexadecimal to Decimal" --inputbox "Enter a hexadecimal number:" 10 50 3>&1 1>&2 2>&3)
+          done
           result=$(programmer_calculation "ibase=16; $hex_number")
           whiptail --title "Hexadecimal to Decimal Result" --msgbox "Result: $result" 10 50
           ;;
         4)
           decimal_number=$(whiptail --title "Decimal to Hexadecimal" --inputbox "Enter a decimal number:" 10 50 3>&1 1>&2 2>&3)
+          until [[ $decimal_number =~ ^[0-9]+$ ]];
+          do
+                   whiptail --title "Invalid Input" --msgbox "Please enter valid decimal number" 10 50
+		   decimal_number=$(whiptail --title "Decimal to Hexadecimal" --inputbox "Enter a decimal number:" 10 50 3>&1 1>&2 2>&3)
+          done
           result=$(programmer_calculation "obase=16; $decimal_number")
           whiptail --title "Decimal to Hexadecimal Result" --msgbox "Result: $result" 10 50
           ;;
